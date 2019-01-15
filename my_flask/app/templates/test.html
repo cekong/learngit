@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    你好 <br/>
+    {%for i in range(4)  %}
+        {{ i }}<br/>
+        {{data.name}}
+        {{data.action}} <br/>
+        {{data1.name}}
+        {{data1.action}}
+        <ul></ul>
+    {%endfor  %}
+    {%for key,value in data.items()%}
+        {{key}}:{{value}}
+        <ul></ul>
+    {%endfor%}
+    {%for key,value in data1.items()%}
+        {{key}}:{{value}}
+        <ul></ul>
+    {%endfor%}
+</body>
+</html>

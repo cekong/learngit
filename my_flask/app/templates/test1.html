@@ -1,0 +1,27 @@
+
+{% extends 'layout.html' %}  {#引入模板#}
+{%block content%}
+    {{ super() }} {#用于追加，不加此句则为覆盖content里面的内容#}
+    你好 <br/>
+    {%for i in range(4)  %}
+        {{ i }}<br/>
+        {{data.name}}
+        {{data.action}} <br/>
+        {{data1.name}}
+        {{data1.action}}
+        <ul></ul>
+    {%endfor  %}
+    {%for key,value in data.items()%}
+        {{key}}:{{value}}
+        <ul></ul>
+    {%endfor%}
+    {%for key,value in data1.items()%}
+        {{key}}:{{value}}
+        <ul></ul>
+    {%endfor%}
+    {% with messages = get_flashed_messages() %}
+    {{ messages }}
+    {% endwith %} <br/>
+    {% set messages = get_flashed_messages() %}
+    {{ messages }}
+{%endblock%}

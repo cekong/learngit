@@ -1,0 +1,82 @@
+           Bei Wang
+
+Email : 332337410@qq.com 
+Telephone : 19921425544
+
+Skills
+
+ Languages: Python, C++, Matlab.
+ Familiar with using python to crawl data, and saving data to mongodb database.
+ Familiar with using C++ to implement MFC graphics interface control program and socket        
+   computer communication program.
+ Familiar with using Matlab to process data and images.
+ Familiar with some softwares, such as Office, Xmind, VISIO.
+ Language ability: CET 6, reading English skilfully.
+
+Project Experience
+
+2017.01-2018.05 Research on Cophasing Detection and Control Technology of Sub-aperture    
+                            Optical Integrated Telescope
+I mainly completed the study on fringe contrast algorithm, the control program of the actuator 
+(C++), PID parameter setting, data processing (Matlab), experimental simulation and image 
+deconvolution reconstruction. 
+
+Work Experience
+
+2018.07--now  PHICOMM Co., Ltd    |  Software Engineer
+    Crawl data and images from web pages.
+
+Education 
+
+2015.09-2018.06  Shanghai Astronomical Observatory , Chinese Academy of Sciences
+            Astronomical technology and methods                              Master 
+2009.09-2013.06  Hebei University of Technology
+                             Measurement and control technology and instruments      Bachelor 
+
+Awards
+
+2018 Shanghai Outstanding Graduates
+2016 Graduate Academic Forum Excellent Wall Poster
+2012, 2013 The Third-prize Scholarship in Hebei University of Technology
+
+           Bei Wang
+
+Email : 332337410@qq.com 
+Telephone : 19921425544
+
+Skills
+
+ Languages: Python, C++, Matlab.
+ Familiar with using python to crawl data, and saving data to mongodb database.
+ Familiar with using C++ to implement MFC graphics interface control program and socket        
+   computer communication program.
+ Familiar with using Matlab to process data and images.
+ Familiar with some softwares, such as Office, Xmind, VISIO.
+ Language ability: CET 6, reading English skilfully.
+
+Project Experience
+
+2017.01-2018.05 Research on Cophasing Detection and Control Technology of Sub-aperture    
+                            Optical Integrated Telescope
+I mainly completed the study on fringe contrast algorithm, the control program of the actuator 
+(C++), PID parameter setting, data processing (Matlab), experimental simulation and image 
+deconvolution reconstruction. 
+
+Work Experience
+
+2018.07--now  PHICOMM Co., Ltd    |  Software Engineer
+    Crawl data and images from web pages.
+
+Education 
+
+2015.09-2018.06  Shanghai Astronomical Observatory , Chinese Academy of Sciences
+            Astronomical technology and methods                              Master 
+2009.09-2013.06  Hebei University of Technology
+                             Measurement and control technology and instruments      Bachelor 
+
+Awards
+
+2018 Shanghai Outstanding Graduates
+2016 Graduate Academic Forum Excellent Wall Poster
+2012, 2013 The Third-prize Scholarship in Hebei University of Technology
+

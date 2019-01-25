@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/deepl/Documents/wb/my_tf/tmp/model.ckpt"
+all_model_checkpoint_paths: "/home/deepl/Documents/wb/my_tf/tmp/model.ckpt"

@@ -1,0 +1,14 @@
+#由test2_配置solver文件.py文件生成
+train_net: "train.prototxt"
+test_net: "test.prototxt"
+test_iter: 10
+test_interval: 100
+base_lr: 0.10000000149011612
+display: 10
+max_iter: 1000
+lr_policy: "step"
+weight_decay: 0.0005000000237487257
+snapshot: 10
+snapshot_prefix: "model"
+solver_mode: CPU
+type: "SGD"

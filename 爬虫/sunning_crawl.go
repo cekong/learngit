@@ -3,17 +3,46 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-var gooddetail = []string{"/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/"}
-var exceltitle = []string{"商品名称", "商品链接", "商品图片", "类别", "口味", "产地", "保质期", "是否含糖", "脂肪含量", "适用人群", "储存方式", "包装", "单件净含量", "包装件数"}
+var gooddetail = []string{"/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/"}
+var exceltitle = []string{"商品名称", "商品价格", "商品链接", "商品图片", "类别", "口味", "产地", "保质期", "是否含糖", "脂肪含量", "适用人群", "储存方式", "包装", "单件净含量", "包装件数"}
 
+func GetGoodPrice(url string) string {
+	re := regexp.MustCompile(`com/(.*?).html`)
+	keynum := re.FindAllStringSubmatch(url, -1)
+	keynum0 := keynum[0][1]
+	key0 := strings.Split(keynum0, "/")[0]
+	key1 := strings.Split(keynum0, "/")[1]
+	priceurl := "http://pas.suning.com/nspcsale_0_000000000" + key1 + "_000000000" + key1 + "_" + key0 + "_20_021_0210101_500353_1000267_9264_12113_Z001___R9006849_3.3_1___000278188__.html?callback=pcData&_=1558663936729"
+	if len(key1) == 11 {
+		priceurl = "http://pas.suning.com/nspcsale_0_0000000" + key1 + "_0000000" + key1 + "_" + key0 + "_20_021_0210101_500353_1000267_9264_12113_Z001___R9006849_3.3_1___000278188__.html?callback=pcData&_=1558663936729"
+	}
+
+	resp, err := http.Get(priceurl)
+	if err != nil {
+		panic(err)
+	}
+	if resp.StatusCode != 200 {
+		fmt.Println("err")
+	}
+	s, _ := ioutil.ReadAll(resp.Body)
+	resp.Body.Close()
+
+	re0 := regexp.MustCompile(`"netPrice":"(.*?)","warrantyList`)
+	price := re0.FindAllStringSubmatch(string(s), -1)
+	fmt.Println(price)
+	fmt.Println(priceurl)
+	return price[0][1]
+}
 func GetGoodDetail(url string) {
 	resp, err := http.Get(url)
 	if err != nil {
@@ -30,12 +59,12 @@ func GetGoodDetail(url string) {
 	name := doc.Find("div.proinfo-title").Find("h1").Text()
 	imageurl, _ := doc.Find("div.imgzoom-thumb-main ul li.current a img").Attr("src-large")
 	imageurl = "http:" + imageurl
-
+	price := GetGoodPrice(url)
 	doc.Find("tr[parametercode]").Each(func(i int, s *goquery.Selection) {
 		gooddetail[0] = name
-		gooddetail[1] = url
-		gooddetail[2] = imageurl
-		fmt.Println(s.Text())
+		gooddetail[1] = price
+		gooddetail[2] = url
+		gooddetail[3] = imageurl
 		key := s.Find("td.name").Text()
 		if len(key) > 1 {
 			for index, item := range exceltitle {
@@ -122,11 +151,11 @@ func main() {
 	// fmt.Println(goodurls)
 	for _, url3 := range goodurls {
 		GetGoodDetail(url3)
-		fmt.Println(gooddetail)
+		// fmt.Println(gooddetail)
 		if gooddetail[0] != "/" {
 			w.Write(gooddetail)
 		}
-		gooddetail = []string{"/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/"}
+		gooddetail = []string{"/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/", "/"}
 	}
 	w.Flush()
 }

@@ -102,9 +102,9 @@ class suning(object):
         time.sleep(random.random())
         html = etree.HTML(html)
         pagenum = html.xpath(u'/html/body/div[9]/div/div/div/a[last()-1]/@pagenum')
-        pagenum=int(pagenum[0])
         urls.append(url.format("0",v))
-        if pagenum>1:
+        if len(pagenum)>0:
+            pagenum = int(pagenum[0])
             for i in range(1,pagenum):
                 urls.append(url.format(str(i),v))
         return urls
